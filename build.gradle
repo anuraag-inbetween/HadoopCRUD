@@ -1,0 +1,41 @@
+apply plugin: 'java'
+apply plugin : 'eclipse'
+apply plugin : 'jetty'
+apply plugin: 'idea'
+apply plugin:  'war'
+
+group = 'com.cs'
+version = '1.0'
+httpPort = 8084
+sourceCompatibility = 1.7
+
+
+repositories {
+  mavenCentral ()
+  maven { url "https://repository.jboss.org/nexus/content/repositories/releases"
+  url "https://jcenter.bintray.com"
+   url 'http://mandubian-mvn.googlecode.com/svn/trunk/mandubian-mvn/repository'
+      url 'http://xuggle.googlecode.com/svn/trunk/repo/share/java/'
+   }
+}
+
+dependencies {
+
+  def springFrameworkVersion = "4.0.0.RELEASE"
+  compile 'org.springframework.data:spring-data-mongodb:1.6.2.RELEASE'
+  compile "org.springframework:spring-webmvc:${springFrameworkVersion}"
+  compile 'org.codehaus.jackson:jackson-core-asl:1.9.9'
+  compile 'org.codehaus.jackson:jackson-mapper-asl:1.9.9'
+  compile 'javax.servlet:javax.servlet-api:3.0.1'
+  compile 'org.apache.commons:commons-io:1.3.2'
+
+    compile 'commons-fileupload:commons-fileupload:1.3.1'
+    compile 'org.mongodb:mongo-java-driver:1.3'
+    compile 'xuggle:xuggle-xuggler:5.4'
+    compile 'org.springframework.data:spring-data-hadoop:2.1.1.RELEASE'
+
+    testCompile "org.springframework:spring-test:${springFrameworkVersion}"
+  testCompile 'junit:junit:4.11'
+}
+
+
